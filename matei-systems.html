@@ -1,0 +1,726 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Matei Systems – Chatbots & Automatisierung für Unternehmen in Österreich. Webseiten-Chatbots, WhatsApp-Automatisierung und KI-Lösungen.">
+<title>Matei Systems – Automatisierung für dein Unternehmen</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --dark: #0A0F1E;
+    --dark2: #111827;
+    --blue: #2563EB;
+    --blue-light: #3B82F6;
+    --blue-pale: #EFF6FF;
+    --white: #FFFFFF;
+    --gray-bg: #F8FAFC;
+    --gray-text: #64748B;
+    --gray-border: #E2E8F0;
+    --text: #0F172A;
+    --radius: 12px;
+    --radius-sm: 8px;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    line-height: 1.7;
+    color: var(--text);
+    background: var(--white);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1, h2, h3, .display { font-family: 'Syne', sans-serif; }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 2rem;
+    background: rgba(10, 15, 30, 0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+  }
+
+  .nav-logo {
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    font-size: 1.2rem;
+    color: #fff;
+    text-decoration: none;
+    letter-spacing: -0.01em;
+  }
+
+  .nav-logo span { color: var(--blue-light); }
+
+  .nav-cta {
+    background: var(--blue);
+    color: #fff;
+    padding: 0.5rem 1.25rem;
+    border-radius: 99px;
+    font-size: 0.875rem;
+    font-weight: 500;
+    text-decoration: none;
+    transition: background 0.2s;
+  }
+
+  .nav-cta:hover { background: var(--blue-light); }
+
+  /* HERO */
+  .hero {
+    background: var(--dark);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 8rem 2rem 5rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -200px; left: 50%;
+    transform: translateX(-50%);
+    width: 700px; height: 700px;
+    background: radial-gradient(circle, rgba(37,99,235,0.18) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .hero-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(37,99,235,0.15);
+    border: 1px solid rgba(59,130,246,0.3);
+    color: #93C5FD;
+    font-size: 0.8rem;
+    font-weight: 500;
+    padding: 0.35rem 1rem;
+    border-radius: 99px;
+    margin-bottom: 1.5rem;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+
+  .hero h1 {
+    font-size: clamp(2.4rem, 6vw, 4.2rem);
+    font-weight: 800;
+    color: #fff;
+    line-height: 1.1;
+    letter-spacing: -0.03em;
+    margin-bottom: 1.25rem;
+    max-width: 800px;
+  }
+
+  .hero h1 em {
+    font-style: normal;
+    color: var(--blue-light);
+  }
+
+  .hero-sub {
+    font-size: 1.1rem;
+    color: #94A3B8;
+    max-width: 520px;
+    margin: 0 auto 2.5rem;
+    line-height: 1.7;
+  }
+
+  .hero-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .btn-primary {
+    background: var(--blue);
+    color: #fff;
+    padding: 0.85rem 2rem;
+    border-radius: 99px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    text-decoration: none;
+    transition: background 0.2s, transform 0.15s;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .btn-primary:hover { background: var(--blue-light); transform: translateY(-1px); }
+
+  .btn-secondary {
+    background: rgba(255,255,255,0.06);
+    color: #CBD5E1;
+    padding: 0.85rem 2rem;
+    border-radius: 99px;
+    font-weight: 500;
+    font-size: 0.95rem;
+    text-decoration: none;
+    border: 1px solid rgba(255,255,255,0.1);
+    transition: background 0.2s;
+  }
+
+  .btn-secondary:hover { background: rgba(255,255,255,0.1); }
+
+  .hero-stats {
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+    margin-top: 4rem;
+    flex-wrap: wrap;
+  }
+
+  .stat { text-align: center; }
+  .stat-num { font-family: 'Syne', sans-serif; font-size: 2rem; font-weight: 800; color: #fff; }
+  .stat-label { font-size: 0.8rem; color: #64748B; margin-top: 2px; }
+
+  /* SECTIONS */
+  section { padding: 5rem 2rem; }
+  .container { max-width: 1000px; margin: 0 auto; }
+
+  .eyebrow {
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--blue);
+    margin-bottom: 0.75rem;
+  }
+
+  .section-title {
+    font-size: clamp(1.8rem, 4vw, 2.6rem);
+    font-weight: 800;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    color: var(--text);
+    margin-bottom: 1rem;
+  }
+
+  .section-sub {
+    font-size: 1rem;
+    color: var(--gray-text);
+    max-width: 540px;
+    line-height: 1.7;
+  }
+
+  /* PROBLEM */
+  .section-problem { background: var(--white); }
+
+  .problem-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1rem;
+    margin-top: 3rem;
+  }
+
+  .problem-card {
+    background: var(--gray-bg);
+    border: 1px solid var(--gray-border);
+    border-radius: var(--radius);
+    padding: 1.5rem;
+  }
+
+  .problem-icon {
+    width: 40px; height: 40px;
+    background: #FEF2F2;
+    border-radius: var(--radius-sm);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.2rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .problem-card h3 { font-size: 1rem; font-weight: 600; margin-bottom: 0.4rem; font-family: 'Inter', sans-serif; }
+  .problem-card p { font-size: 0.875rem; color: var(--gray-text); line-height: 1.6; }
+
+  /* SOLUTIONS */
+  .section-solutions { background: var(--gray-bg); }
+
+  .solutions-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.25rem;
+    margin-top: 3rem;
+  }
+
+  .solution-card {
+    background: var(--white);
+    border: 1px solid var(--gray-border);
+    border-radius: var(--radius);
+    padding: 1.75rem;
+    transition: border-color 0.2s, transform 0.2s;
+  }
+
+  .solution-card:hover { border-color: var(--blue); transform: translateY(-3px); }
+  .solution-card.featured { border: 2px solid var(--blue); }
+
+  .solution-badge {
+    display: inline-block;
+    background: var(--blue-pale);
+    color: var(--blue);
+    font-size: 0.7rem;
+    font-weight: 600;
+    padding: 3px 10px;
+    border-radius: 99px;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .solution-icon {
+    width: 48px; height: 48px;
+    background: var(--blue-pale);
+    border-radius: var(--radius-sm);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .solution-card h3 { font-size: 1.15rem; font-weight: 700; margin-bottom: 0.5rem; font-family: 'Syne', sans-serif; }
+  .solution-card p { font-size: 0.875rem; color: var(--gray-text); line-height: 1.65; margin-bottom: 1rem; }
+
+  .solution-features { list-style: none; }
+  .solution-features li {
+    font-size: 0.85rem;
+    color: var(--gray-text);
+    padding: 3px 0;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .solution-features li::before { content: '✓'; color: var(--blue); font-weight: 700; }
+
+  /* HOW IT WORKS */
+  .section-how { background: var(--white); }
+
+  .steps {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1.5rem;
+    margin-top: 3rem;
+    position: relative;
+  }
+
+  .step {
+    text-align: center;
+    padding: 1.5rem;
+  }
+
+  .step-num {
+    width: 52px; height: 52px;
+    background: var(--dark);
+    color: #fff;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Syne', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 800;
+    margin: 0 auto 1rem;
+  }
+
+  .step h3 { font-size: 1.05rem; font-weight: 700; margin-bottom: 0.4rem; font-family: 'Syne', sans-serif; }
+  .step p { font-size: 0.875rem; color: var(--gray-text); line-height: 1.65; }
+
+  /* PRICING */
+  .section-pricing { background: var(--gray-bg); }
+
+  .pricing-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.25rem;
+    margin-top: 3rem;
+    align-items: start;
+  }
+
+  .pricing-card {
+    background: var(--white);
+    border: 1px solid var(--gray-border);
+    border-radius: var(--radius);
+    padding: 2rem;
+  }
+
+  .pricing-card.featured {
+    border: 2px solid var(--blue);
+    position: relative;
+  }
+
+  .popular-badge {
+    position: absolute;
+    top: -13px; left: 50%;
+    transform: translateX(-50%);
+    background: var(--blue);
+    color: #fff;
+    font-size: 0.7rem;
+    font-weight: 600;
+    padding: 4px 14px;
+    border-radius: 99px;
+    white-space: nowrap;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+
+  .pricing-name { font-size: 0.9rem; font-weight: 600; color: var(--gray-text); margin-bottom: 0.5rem; text-transform: uppercase; letter-spacing: 0.05em; }
+  .pricing-price { font-family: 'Syne', sans-serif; font-size: 2.4rem; font-weight: 800; color: var(--text); line-height: 1; }
+  .pricing-price span { font-size: 1rem; font-weight: 400; color: var(--gray-text); }
+  .pricing-monthly { font-size: 0.85rem; color: var(--gray-text); margin: 0.25rem 0 1.25rem; }
+
+  .pricing-divider { border: none; border-top: 1px solid var(--gray-border); margin: 1.25rem 0; }
+
+  .pricing-features { list-style: none; }
+  .pricing-features li {
+    font-size: 0.875rem;
+    color: var(--text);
+    padding: 5px 0;
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    line-height: 1.5;
+  }
+  .pricing-features li::before { content: '✓'; color: var(--blue); font-weight: 700; flex-shrink: 0; margin-top: 2px; }
+
+  .pricing-btn {
+    display: block;
+    text-align: center;
+    margin-top: 1.5rem;
+    padding: 0.8rem;
+    border-radius: 99px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    text-decoration: none;
+    transition: all 0.2s;
+  }
+
+  .pricing-btn-outline {
+    border: 1.5px solid var(--blue);
+    color: var(--blue);
+  }
+  .pricing-btn-outline:hover { background: var(--blue-pale); }
+
+  .pricing-btn-filled {
+    background: var(--blue);
+    color: #fff;
+  }
+  .pricing-btn-filled:hover { background: var(--blue-light); }
+
+  /* INDUSTRIES */
+  .section-industries { background: var(--white); }
+
+  .industries-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 0.75rem;
+    margin-top: 3rem;
+  }
+
+  .industry-chip {
+    background: var(--gray-bg);
+    border: 1px solid var(--gray-border);
+    border-radius: var(--radius-sm);
+    padding: 0.75rem 1rem;
+    text-align: center;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--text);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+  }
+
+  /* CTA */
+  .section-cta {
+    background: var(--dark);
+    text-align: center;
+    padding: 6rem 2rem;
+  }
+
+  .section-cta h2 {
+    font-size: clamp(1.8rem, 4vw, 2.8rem);
+    font-weight: 800;
+    color: #fff;
+    margin-bottom: 1rem;
+    letter-spacing: -0.02em;
+  }
+
+  .section-cta p { color: #94A3B8; font-size: 1rem; margin-bottom: 2rem; }
+
+  /* FOOTER */
+  footer {
+    background: var(--dark2);
+    padding: 2rem;
+    text-align: center;
+    font-size: 0.8rem;
+    color: #475569;
+  }
+
+  footer a { color: #64748B; text-decoration: none; }
+
+  /* WHATSAPP FLOAT */
+  .wa-float {
+    position: fixed;
+    bottom: 1.5rem; right: 1.5rem;
+    width: 56px; height: 56px;
+    background: #25D366;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    box-shadow: 0 4px 20px rgba(37,211,102,0.4);
+    text-decoration: none;
+    z-index: 999;
+    transition: transform 0.2s;
+  }
+
+  .wa-float:hover { transform: scale(1.08); }
+
+  .wa-float svg { width: 28px; height: 28px; fill: #fff; }
+
+  @media (max-width: 600px) {
+    nav { padding: 0.9rem 1.25rem; }
+    section { padding: 4rem 1.25rem; }
+    .hero { padding: 7rem 1.25rem 4rem; }
+    .hero-stats { gap: 2rem; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="#" class="nav-logo">Matei<span>Systems</span></a>
+  <a href="#kontakt" class="nav-cta">Kostenlose Demo</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div>
+    <div class="hero-eyebrow">🤖 KI-Automatisierung für Unternehmen</div>
+    <h1>Dein Business arbeitet.<br><em>Auch wenn du schläfst.</em></h1>
+    <p class="hero-sub">Chatbots, WhatsApp-Automatisierung und KI-Lösungen — damit keine Anfrage mehr verloren geht und dein Team sich auf das Wichtige konzentriert.</p>
+    <div class="hero-buttons">
+      <a href="#kontakt" class="btn-primary">Kostenlose Demo anfragen →</a>
+      <a href="#loesungen" class="btn-secondary">Unsere Lösungen</a>
+    </div>
+    <div class="hero-stats">
+      <div class="stat">
+        <div class="stat-num">24/7</div>
+        <div class="stat-label">Erreichbarkeit</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">3–5</div>
+        <div class="stat-label">Tage bis live</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">0€</div>
+        <div class="stat-label">Demo-Kosten</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROBLEM -->
+<section class="section-problem">
+  <div class="container">
+    <div class="eyebrow">Das Problem</div>
+    <h2 class="section-title">Du verlierst täglich Kunden —<br>ohne es zu merken.</h2>
+    <p class="section-sub">Unbeantwortete Nachrichten, manuelle Terminbuchungen und langsame Reaktionszeiten kosten dich jeden Tag Umsatz.</p>
+    <div class="problem-grid">
+      <div class="problem-card">
+        <div class="problem-icon">⏳</div>
+        <h3>Langsame Antworten</h3>
+        <p>Kunden warten nicht. Wer nicht innerhalb von Minuten antwortet, verliert den Auftrag an die Konkurrenz.</p>
+      </div>
+      <div class="problem-card">
+        <div class="problem-icon">📭</div>
+        <h3>Verlorene Anfragen</h3>
+        <p>Nachrichten die zu spät beantwortet werden oder im Postfach verschwinden kosten dich echtes Geld.</p>
+      </div>
+      <div class="problem-card">
+        <div class="problem-icon">🔁</div>
+        <h3>Manuelle Wiederholungen</h3>
+        <p>Dieselben Fragen täglich zu beantworten kostet dein Team Stunden — Zeit die woanders gebraucht wird.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SOLUTIONS -->
+<section class="section-solutions" id="loesungen">
+  <div class="container">
+    <div class="eyebrow">Unsere Lösungen</div>
+    <h2 class="section-title">Automatisierung die wirklich funktioniert.</h2>
+    <p class="section-sub">Jede Lösung wird individuell für dein Unternehmen gebaut — kein Copy-Paste, keine Templates.</p>
+    <div class="solutions-grid">
+      <div class="solution-card">
+        <div class="solution-icon">💬</div>
+        <h3>Webseiten-Chatbot</h3>
+        <p>Ein intelligenter Bot auf deiner Webseite der Fragen beantwortet, Leads sammelt und Termine bucht — rund um die Uhr.</p>
+        <ul class="solution-features">
+          <li>Beantwortet häufige Fragen sofort</li>
+          <li>Sammelt Kontaktdaten automatisch</li>
+          <li>Terminbuchung direkt im Chat</li>
+          <li>Passt sich deinem Design an</li>
+        </ul>
+      </div>
+      <div class="solution-card featured">
+        <div class="solution-badge">Beliebteste</div>
+        <div class="solution-icon">📱</div>
+        <h3>WhatsApp-Automatisierung</h3>
+        <p>Automatische Antworten, Terminbestätigungen und Kundenbetreuung direkt über WhatsApp — der Kanal den deine Kunden täglich nutzen.</p>
+        <ul class="solution-features">
+          <li>Sofortige Antworten auf Anfragen</li>
+          <li>Automatische Terminbuchung</li>
+          <li>Erinnerungen & Bestätigungen</li>
+          <li>Integration mit deinem Kalender</li>
+        </ul>
+      </div>
+      <div class="solution-card">
+        <div class="solution-icon">🤖</div>
+        <h3>KI-Komplettlösung</h3>
+        <p>Webseite, WhatsApp und Instagram — alles automatisiert mit künstlicher Intelligenz die dein Business wirklich versteht.</p>
+        <ul class="solution-features">
+          <li>KI die auf dein Business trainiert ist</li>
+          <li>Alle Kanäle in einem System</li>
+          <li>Monatliche Optimierung</li>
+          <li>Detailliertes Reporting</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="section-how">
+  <div class="container">
+    <div class="eyebrow">So funktioniert es</div>
+    <h2 class="section-title">In 3 Schritten automatisiert.</h2>
+    <p class="section-sub">Von der ersten Demo bis zum laufenden Bot — schnell, unkompliziert und ohne technisches Vorwissen.</p>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <h3>Kostenloses Gespräch</h3>
+        <p>Wir analysieren dein Business, verstehen deine Anfragen und zeigen dir live wie die Automatisierung bei dir aussehen würde.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <h3>Individueller Aufbau</h3>
+        <p>Wir bauen deinen Bot komplett auf dein Unternehmen zugeschnitten — in 3 bis 5 Werktagen ist er fertig.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <h3>Live & fertig</h3>
+        <p>Du aktivierst ihn mit einem Klick. Wir begleiten dich beim Start und sind bei Fragen immer erreichbar.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="section-pricing" id="preise">
+  <div class="container">
+    <div class="eyebrow">Preise</div>
+    <h2 class="section-title">Transparent. Fair. Keine Überraschungen.</h2>
+    <p class="section-sub">Einmalige Setup-Gebühr + monatliche Betreuung. Keine versteckten Kosten, keine Mindestlaufzeit.</p>
+    <div class="pricing-grid">
+      <div class="pricing-card">
+        <div class="pricing-name">Starter</div>
+        <div class="pricing-price">299 <span>€</span></div>
+        <div class="pricing-monthly">+ 49 €/Monat Betreuung</div>
+        <hr class="pricing-divider">
+        <ul class="pricing-features">
+          <li>Webseiten-Chatbot</li>
+          <li>FAQ-Automatisierung</li>
+          <li>Lead-Sammlung</li>
+          <li>Design nach deinen Farben</li>
+          <li>E-Mail Support</li>
+        </ul>
+        <a href="#kontakt" class="pricing-btn pricing-btn-outline">Demo anfragen</a>
+      </div>
+      <div class="pricing-card featured">
+        <div class="popular-badge">Beliebteste Wahl</div>
+        <div class="pricing-name">Pro</div>
+        <div class="pricing-price">599 <span>€</span></div>
+        <div class="pricing-monthly">+ 99 €/Monat Betreuung</div>
+        <hr class="pricing-divider">
+        <ul class="pricing-features">
+          <li>Alles aus Starter</li>
+          <li>WhatsApp-Automatisierung</li>
+          <li>Automatische Terminbuchung</li>
+          <li>Kalender-Integration</li>
+          <li>Priority Support</li>
+          <li>Monatliches Reporting</li>
+        </ul>
+        <a href="#kontakt" class="pricing-btn pricing-btn-filled">Demo anfragen</a>
+      </div>
+      <div class="pricing-card">
+        <div class="pricing-name">Premium</div>
+        <div class="pricing-price">999 <span>€</span></div>
+        <div class="pricing-monthly">+ 149 €/Monat Betreuung</div>
+        <hr class="pricing-divider">
+        <ul class="pricing-features">
+          <li>Alles aus Pro</li>
+          <li>Instagram-Automatisierung</li>
+          <li>KI auf dein Business trainiert</li>
+          <li>Alle Kanäle in einem System</li>
+          <li>Monatliche Optimierung</li>
+          <li>Persönlicher Ansprechpartner</li>
+        </ul>
+        <a href="#kontakt" class="pricing-btn pricing-btn-outline">Demo anfragen</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INDUSTRIES -->
+<section class="section-industries">
+  <div class="container">
+    <div class="eyebrow">Branchen</div>
+    <h2 class="section-title">Perfekt für lokale Unternehmen.</h2>
+    <p class="section-sub">Egal welche Branche — wenn du Kundenanfragen bekommst, können wir sie automatisieren.</p>
+    <div class="industries-grid">
+      <div class="industry-chip">✂️ Friseure & Studios</div>
+      <div class="industry-chip">🍕 Restaurants</div>
+      <div class="industry-chip">🦷 Zahnarztpraxen</div>
+      <div class="industry-chip">💪 Fitnessstudios</div>
+      <div class="industry-chip">🏠 Immobilienmakler</div>
+      <div class="industry-chip">🔧 Handwerker</div>
+      <div class="industry-chip">🛍️ Online Shops</div>
+      <div class="industry-chip">💆 Beauty & Wellness</div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="section-cta" id="kontakt">
+  <div class="container">
+    <h2>Bereit dein Business zu automatisieren?</h2>
+    <p>Kostenlose Demo — kein Risiko, keine Verpflichtung. Wir zeigen dir live wie es bei dir aussehen würde.</p>
+    <a href="https://wa.me/43DEINENUMMER" class="btn-primary" style="font-size:1rem; padding: 1rem 2.5rem;">
+      Jetzt kostenlos anfragen auf WhatsApp →
+    </a>
+  </div>
+</section>
+
+<footer>
+  <p>© 2025 Matei Systems · <a href="mailto:info@matei.systems">info@matei.systems</a> · Österreich</p>
+</footer>
+
+<!-- WhatsApp Float Button -->
+<a href="https://wa.me/43DEINENUMMER" class="wa-float" target="_blank" aria-label="WhatsApp">
+  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+  </svg>
+</a>
+
+</body>
+</html>
